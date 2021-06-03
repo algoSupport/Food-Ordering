@@ -1,0 +1,14 @@
+.HeaderContainer{
+    display: flex;
+    background-color: palevioletred;
+    color: cornsilk;
+}
+
+.HeaderTitle{
+}
+
+@media (max-width: 800px){
+    .HeaderTitle{
+        font-size: 4vh;
+    }
+}
