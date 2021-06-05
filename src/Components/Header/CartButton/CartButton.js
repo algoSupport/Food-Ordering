@@ -1,10 +1,15 @@
+import Button from '../../../UI/Button/Button';
+
 import styles from './CartButton.module.css';
 
 const CartButton = props =>{
+
+    function openCart (){
+     alert("Works!");   
+    };
+
     return(
-    <>
-        <h2 className={styles.CartButtonBox}>Your Cart</h2>
-    </>
+        <Button content="Your Cart" styling={styles.CartButtonBox} clickFunc={openCart}></Button>
     )
 }
 

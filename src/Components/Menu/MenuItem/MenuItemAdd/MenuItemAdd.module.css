@@ -3,23 +3,31 @@
     flex-wrap: wrap;
     margin-left: auto;
     flex-grow:2;
+    align-content: flex-start;
+    margin-top:20px;
 }
 
 .LabelBox{
     flex-grow: 1;
+    font-size: 1rem;
+    padding-top:1.4vh;
 }
+
 
 .NumberBox{   
     border-radius: 4px;
     flex-grow: 1;
     width: 50%;
-    height: 30%;
+    height: 24%;
+    font-size: 1rem;
 }
 
 .SubmitButton{
-    width: 10%;
+    width: 15%;
+    height:25%;
     flex-grow: 4;
     border-radius:5vw;
-    background-color: chocolate;
+    background-color: salmon;
+    border-color: sienna;
     /* background-color: darkgreen; */
 }
