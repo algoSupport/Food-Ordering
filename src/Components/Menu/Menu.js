@@ -11,26 +11,34 @@ const Menu = () => {
   useEffect(()=>{
 
     setMenuListArray([
-      <MenuItem
-        MenuItemTitle="Dango"
-        MenuItemDesc="a small, sticky, sweet dumpling, commonly skewered on a stick"
-        MenuItemPrice="PKR 150"
-      />,
+      {
+        MenuItemTitle:"Dango",
+        MenuItemDesc:"a small, sticky, sweet dumpling, commonly skewered on a stick",
+        MenuItemPrice:"PKR 150",
+      },
   
-      <MenuItem
-        MenuItemTitle="Kompeito"
-        MenuItemDesc="A crystal sugar candy"
-        MenuItemPrice="PKR 20"
-      />,
+      {
+        MenuItemTitle:"Kompeito",
+        MenuItemDesc:"A crystal sugar candy",
+        MenuItemPrice:"PKR 20",
+      },
     ]);
   },[])
+
+  let readyArray=menuListArray.map( menuItem=> (
+  <MenuItem 
+  key={Math.random()}
+  MenuItemTitle={menuItem.MenuItemTitle}
+  MenuItemDesc={menuItem.MenuItemDesc}
+  MenuItemPrice={menuItem.MenuItemPrice} />  ));
+   
 
 
   return (
     <Card cardWidth="50vw" cardColor="pink">
       <h2>Menu</h2>
       <ul className={styles.MenuList}>
-        {menuListArray}
+        {readyArray}
       </ul>
     </Card>
   )

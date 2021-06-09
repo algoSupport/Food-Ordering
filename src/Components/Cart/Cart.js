@@ -3,7 +3,7 @@ import React, {useContext} from 'react'
 import Card from "../../UI/Card/Card";
 import CartItem from './CartItem/CartItem';
 import Backdrop from "../../UI/Backdrop/Backdrop";
-import {CartContext} from '../../Context/cart-context'
+import {CartContext} from '../../Context/cart-triggered-context'
 
 import styles from './Cart.module.css';
 
@@ -11,7 +11,6 @@ import styles from './Cart.module.css';
 const CartCard = () =>{ 
 
     const {setCartStatus} = useContext(CartContext);
-
 
     return(            
         <div className={styles.cartContainer}>
