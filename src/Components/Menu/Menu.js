@@ -5,7 +5,6 @@ import styles from "./Menu.module.css";
 import { useEffect, useState } from "react";
 
 const Menu = () => {
-  let i = 0;
 
   const [menuListArray, setMenuListArray] = useState([]);
 
