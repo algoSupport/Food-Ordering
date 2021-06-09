@@ -8,24 +8,19 @@ import {CartContext} from '../../Context/cart-context'
 import styles from './Cart.module.css';
 
 
-const CartCard = () =>{
-    const {CcartTriggered, CsetCartTriggered} = useContext(CartContext);
+const CartCard = () =>{ 
 
-    React.useEffect(() => {
-        console.log("Check", CcartTriggered)
-         }, [CcartTriggered]);
-            
+    const {setCartStatus} = useContext(CartContext);
 
-    return(
-            
+
+    return(            
         <div className={styles.cartContainer}>
 
-        <Card cardWidth="40vw" cardColor="peachpuff">
+        <Card cardWidth="40vw" cardColor="peachpuff" btnClick={()=>{setCartStatus(false)}} >
 
         <h2>Cart</h2>
         <CartItem/>
         
-
         </Card>
 
         </div> 
@@ -33,11 +28,11 @@ const CartCard = () =>{
 }
 
 const Cart = () =>{
-    const {CcartTriggered} = useContext(CartContext);
+    const {cartStatus} = useContext(CartContext);
 
 return(
     <>
-    { CcartTriggered &&
+    { cartStatus &&
     <>
     <Backdrop/>
     <CartCard/>)
