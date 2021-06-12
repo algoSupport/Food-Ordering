@@ -32,10 +32,12 @@ const CartCard = () => {
           Quantity={CurrentItem.Quantity}
           Price={CurrentItem.Price}
         /> */}
+        {/* <button onClick={()=>{console.log("Current Item:",CurrentItem)}}>PRESS FOR CURRENT ITEM</button>0
+        <button onClick={()=>{console.log("Cart List Array:",CartListArray)}}>Press for Cart list Array</button>  */}
+
     {CartList}
-<button onClick={()=>{console.log("Current Item:",CurrentItem)}}>PRESS FOR CURRENT ITEM</button>
-<button onClick={()=>{console.log("Cart List Array:",CartListArray)}}>Press for Cart list Array</button> 
-        {Total}
+
+        <h3>Total: {Total}</h3>
 
         
       </Card>

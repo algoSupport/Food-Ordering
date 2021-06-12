@@ -35,8 +35,22 @@ const CartInsideContextProvider = props=> {
 
         setCartListArrayState((prevCartList)=>{
         //    console.log(...prevCartList);
-            return [...prevCartList,newCartItem];
+            let newCartlist= [...prevCartList,newCartItem];
+
+            let newTotal= newCartlist.reduce( (totalSum, item) => {
+                return totalSum+(item.Price * item.Quantity); }
+                ,0);
+
+                console.log(newCartlist[0].Price);
+            // var sum = products.reduce((sum, p) => sum + p.price*p.quantity, 0);
+
+            console.log("newTotal: ",newTotal);
+
+            setTotalState(newTotal);
+            return(newCartlist);
         });
+
+        
     };
 
     const cartInsideValues={

@@ -10,7 +10,7 @@ const MenuItem = props =>{
         <div className={styles.ItemInfoContainer}>
         <h4>{props.MenuItemTitle}</h4>
         <em>{props.MenuItemDesc}</em>
-        <h5>{props.MenuItemPrice}</h5>
+        <h5>PKR {props.MenuItemPrice}</h5>
         </div>
 
         <div className={styles.SpaceBox}/>

@@ -1,6 +1,8 @@
 .MenuItemContainer{
     display: flex;
     font-size: 0.9rem;
+    margin-top: -5%;
+
 }
 
 .ItemInfoContainer{

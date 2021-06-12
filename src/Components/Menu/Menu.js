@@ -14,13 +14,13 @@ const Menu = () => {
       {
         MenuItemTitle:"Dango",
         MenuItemDesc:"a small, sticky, sweet dumpling, commonly skewered on a stick",
-        MenuItemPrice:"PKR 150",
+        MenuItemPrice:"150",
       },
   
       {
         MenuItemTitle:"Kompeito",
         MenuItemDesc:"A crystal sugar candy",
-        MenuItemPrice:"PKR 20",
+        MenuItemPrice:"20",
       },
     ]);
   },[])
