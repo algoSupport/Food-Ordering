@@ -15,7 +15,7 @@ const MenuItem = props =>{
 
         <div className={styles.SpaceBox}/>
         
-        <MenuItemAdd/>
+        <MenuItemAdd MenuItemName={props.MenuItemTitle} MenuItemPrice={props.MenuItemPrice} />
         
         </li>
     )
