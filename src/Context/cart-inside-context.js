@@ -18,25 +18,26 @@ const CartInsideContextProvider = props=> {
     const [cartListArrayState, setCartListArrayState]= useState([]);
     
 
-    const addItemToCartFunc =(inputItemQuantity)=> {
+    const addItemToCartFunc =(currentItemName,currentItemPrice,currentItemQuantity) => {
 
-        if(inputItemQuantity<1){
+        if(currentItemQuantity<1){
             return;
         }
 
         const newCartItem ={
-            currentItemName : props.MenuItemName,
-            currentItemPrice: props.MenuItemPrice,
-            currentItemQuantity : inputItemQuantity,
+            Name: currentItemName,
+            Price: currentItemPrice,
+            Quantity: currentItemQuantity,
         };
 
         setCurrentItemState(newCartItem);
+        // console.log("Current Item State",currentItemState);
 
         setCartListArrayState((prevCartList)=>{
-           return [{newCartItem},...prevCartList];
+        //    console.log(...prevCartList);
+            return [...prevCartList,newCartItem];
         });
     };
-
 
     const cartInsideValues={
         Total: totalState,
