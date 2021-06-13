@@ -8,12 +8,13 @@ import styles from "./CartItemAdjust.module.css";
 
 const CartItemAdjust = (props) => {
 
-const { cartMinusFunc, CartListArray, setCartListArray } = useContext(CartInsideContext);
+const { cartMinusFunc } = useContext(CartInsideContext);
 
 
   const cartItemAdjustMinus = () => {
     console.log("Cart ItemAdjust Component", "Minus function");
     cartMinusFunc(props.cartItemKey);
+  }
 
   return (
     <div className={styles.CartItemAdjustBox}>

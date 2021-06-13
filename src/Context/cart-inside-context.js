@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 
 export const CartInsideContext = React.createContext({
   Total: 0,
@@ -52,13 +52,11 @@ const CartInsideContextProvider = (props) => {
   };
 
   const decreaseCartItemQuantity = (itemOrderNumber) => {
-    console.log("Cart ItemAdjust Component", "Minus function");
+    console.log("Cart InsideContext", "Minus function");
 
     let cartChangeIndex = cartListArrayState.findIndex(
       (cartOrder) => cartOrder.OrderNumber == itemOrderNumber
     );
-
-    console.log("Index", cartChangeIndex);
 
     // /*This bracket for testing -->*/ }
 
@@ -69,11 +67,18 @@ const CartInsideContextProvider = (props) => {
         OrderNumber: updateItemSelect.OrderNumber,
         Name: updateItemSelect.Name,
         Price: updateItemSelect.Price,
-        Quantity: --updateItemSelect.Quantity,
+        Quantity: (updateItemSelect.Quantity-2),
       };
 
       let newListArray = prevCartList;
       newListArray[cartChangeIndex] = updatedCartItem;
+
+      let newTotal = newListArray.reduce((totalSum, item) => {
+        return totalSum + item.Price * item.Quantity;
+      }, 0);
+
+      setTotalState(newTotal);
+
       return newListArray;
     });
   };

@@ -35,18 +35,13 @@ const CartCard = () => {
 };
 
 const Cart = () => {
-  const { cartStatus } = useContext(CartContext);
-  const { setCartStatus } = useContext(CartContext);
+  const { cartStatus,setCartStatus } = useContext(CartContext);
 
   return (
     <>
       {cartStatus && (
         <>
-          <Backdrop
-            btnClick={() => {
-              setCartStatus(false);
-            }}
-          />
+          <Backdrop btnClick={() => {setCartStatus(false); }} />
           <CartCard />)
         </>
       )}
