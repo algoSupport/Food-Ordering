@@ -11,27 +11,24 @@ import styles from "./Cart.module.css";
 const CartCard = () => {
   const { CartListArray, Total, CurrentItem } = useContext(CartInsideContext);
 
-    let cartItemKey=Math.random();
-
-    let CartList=CartListArray.map((cartItem)=>(
-        <CartItem
-          key= {cartItem.OrderNumber}
-          Name={cartItem.Name}
-          Quantity={cartItem.Quantity}
-          Price={cartItem.Price}
-        />
-    ));
+  let CartList = CartListArray.map((cartItem) => (
+    <CartItem
+      OrderNumber={cartItem.OrderNumber}
+      key={cartItem.OrderNumber}
+      Name={cartItem.Name}
+      Quantity={cartItem.Quantity}
+      Price={cartItem.Price}
+    />
+  ));
 
   return (
     <div className={styles.cartContainer}>
       <Card cardWidth="40vw" cardColor="peachpuff">
         <h2>Cart</h2>
 
-    {CartList}
+        {CartList}
 
         <h3>Total: {Total}</h3>
-
-        
       </Card>
     </div>
   );

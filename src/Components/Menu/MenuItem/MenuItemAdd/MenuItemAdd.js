@@ -20,6 +20,7 @@ const MenuItemAdd = props =>{
         // console.log("QuantityRef", quantityRef.current.value);
         
         addItemToCart(props.MenuItemName,props.MenuItemPrice,inputItemQuantity);
+        quantityRef.current.value = "";
     };
     
 

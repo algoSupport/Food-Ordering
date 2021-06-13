@@ -1,11 +1,14 @@
+import {useContext} from 'react';
+
+import {CartInsideContext} from "../../../Context/cart-inside-context";
+
 import styles from './CartItem.module.css';
 
 import CartItemAdjust from './CartItemAdjust/CartItemAdjust';
 
-const CartItem = props =>{
 
-   
-    
+const CartItem = props =>{
+        
     return(
         <li className={styles.MenuItemContainer} >
         
@@ -18,7 +21,7 @@ const CartItem = props =>{
         
         <h5 className={styles.QuantityBox}>Quantity: {props.Quantity}</h5>
 
-       <CartItemAdjust cartItemKey={props.key} /> 
+       <CartItemAdjust cartItemKey={props.OrderNumber} /> 
         </li>
     )
 };
