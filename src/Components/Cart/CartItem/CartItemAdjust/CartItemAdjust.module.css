@@ -1,0 +1,40 @@
+.CartItemAdjustBox{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: auto;
+    flex-grow:4;
+    align-content: flex-start;
+    margin-top:3%;
+    margin-left: 1%;
+    /* width: 30% */
+}
+
+
+.MinusButton{
+    display: flex;
+    width: 20%;
+    height: 40%;
+    flex-grow: 1;
+    border-radius: 5vw;
+    color:wheat;
+    background-color: purple;
+    font-size: 230%;
+    justify-content: center;
+    align-items: center;
+    /* background-color: darkgreen; */
+}
+
+.PlusButton{
+    width: 20%;
+    height: 40%;
+    flex-grow: 1;
+    margin-left:15%;
+    border-radius: 5vw;
+    color:wheat;
+    background-color: purple;
+    justify-content: center;
+    align-items: center;
+    font-size: 150%;
+    /* border-color: sienna; */
+    /* background-color: darkgreen; */
+}

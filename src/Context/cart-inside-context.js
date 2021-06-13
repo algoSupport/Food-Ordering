@@ -16,6 +16,7 @@ const CartInsideContextProvider = props=> {
     const [totalState,setTotalState] = useState(0);
     const [currentItemState, setCurrentItemState]= useState({});
     const [cartListArrayState, setCartListArrayState]= useState([]);
+    const [cartOrderNumberState, setCartOrderNumberState] = useState(0);
     
 
     const addItemToCartFunc =(currentItemName,currentItemPrice,currentItemQuantity) => {
@@ -24,13 +25,18 @@ const CartInsideContextProvider = props=> {
             return;
         }
 
-        const newCartItem ={
+        const newCartItem = {
+            OrderNumber: cartOrderNumberState,
             Name: currentItemName,
             Price: currentItemPrice,
             Quantity: currentItemQuantity,
         };
 
-        setCurrentItemState(newCartItem);
+        setCartOrderNumberState( (prevNumber) =>{
+            return (++prevNumber);
+        });
+
+        // setCurrentItemState(newCartItem);
         // console.log("Current Item State",currentItemState);
 
         setCartListArrayState((prevCartList)=>{
@@ -41,16 +47,10 @@ const CartInsideContextProvider = props=> {
                 return totalSum+(item.Price * item.Quantity); }
                 ,0);
 
-                console.log(newCartlist[0].Price);
-            // var sum = products.reduce((sum, p) => sum + p.price*p.quantity, 0);
-
-            console.log("newTotal: ",newTotal);
 
             setTotalState(newTotal);
             return(newCartlist);
-        });
-
-        
+        });  
     };
 
     const cartInsideValues={
