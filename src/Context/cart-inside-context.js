@@ -35,11 +35,9 @@ const CartInsideContextProvider = (props) => {
       return ++prevNumber;
     });
 
-    // setCurrentItemState(newCartItem);
-    // console.log("Current Item State",currentItemState);
-
+  
     setCartListArrayState((prevCartList) => {
-      //    console.log(...prevCartList);
+
       let newCartlist = [...prevCartList, newCartItem];
 
       let newTotal = newCartlist.reduce((totalSum, item) => {
@@ -51,8 +49,8 @@ const CartInsideContextProvider = (props) => {
     });
   };
 
-  const decreaseCartItemQuantity = (itemOrderNumber) => {
-    console.log("Cart InsideContext", "Minus function");
+  const decreaseCartItemQuantity = (itemOrderNumber) => {   
+    // console.log("Cart InsideContext", "Minus function");
 
     let cartChangeIndex = cartListArrayState.findIndex(
       (cartOrder) => cartOrder.OrderNumber == itemOrderNumber
@@ -61,27 +59,26 @@ const CartInsideContextProvider = (props) => {
     // /*This bracket for testing -->*/ }
 
     setCartListArrayState((prevCartList) => {
-      let updateItemSelect = prevCartList[cartChangeIndex];
 
-      let updatedCartItem = {
-        OrderNumber: updateItemSelect.OrderNumber,
-        Name: updateItemSelect.Name,
-        Price: updateItemSelect.Price,
-        Quantity: (updateItemSelect.Quantity-2),
-      };
+      console.log("CartSetterFunc", prevCartList[cartChangeIndex].Quantity)
 
-      let newListArray = prevCartList;
-      newListArray[cartChangeIndex] = updatedCartItem;
+      let clonedArray = JSON.parse(JSON.stringify(prevCartList));
+      clonedArray[cartChangeIndex].Quantity--;
+      // clonedArray[cartChangeIndex].Quantity = clonedArray[cartChangeIndex].Quantity - 1;
 
-      let newTotal = newListArray.reduce((totalSum, item) => {
-        return totalSum + item.Price * item.Quantity;
-      }, 0);
-
-      setTotalState(newTotal);
-
-      return newListArray;
+      return clonedArray;
     });
+  return
   };
+
+    const updateTotalFunc = () =>{
+    let newTotal = cartListArrayState.reduce((totalSum, item) => {
+      return totalSum + item.Price * item.Quantity;
+    }, 0);
+
+    setTotalState(newTotal);
+    return;
+  }
 
   const cartInsideValues = {
     Total: totalState,
@@ -91,6 +88,7 @@ const CartInsideContextProvider = (props) => {
     setCurrentItem: setCurrentItemState,
     addItemToCart: addItemToCartFunc,
     cartMinusFunc: decreaseCartItemQuantity,
+    updateTotal: updateTotalFunc,
   };
 
   return (

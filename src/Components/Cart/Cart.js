@@ -9,7 +9,7 @@ import { CartInsideContext } from "../../Context/cart-inside-context";
 import styles from "./Cart.module.css";
 
 const CartCard = () => {
-  const { CartListArray, Total, CurrentItem } = useContext(CartInsideContext);
+  const { CartListArray, Total } = useContext(CartInsideContext);
 
   let CartList = CartListArray.map((cartItem) => (
     <CartItem
@@ -26,6 +26,13 @@ const CartCard = () => {
       <Card cardWidth="40vw" cardColor="peachpuff">
         <h2>Cart</h2>
 
+        <button
+          onClick={() =>
+            CartListArray.forEach((item) => console.log(item.Name,item.Quantity))
+          }
+        >
+          PRESS FOR CART LIST QUANTITIES
+        </button>
         {CartList}
 
         <h3>Total: {Total}</h3>
@@ -35,13 +42,17 @@ const CartCard = () => {
 };
 
 const Cart = () => {
-  const { cartStatus,setCartStatus } = useContext(CartContext);
+  const { cartStatus, setCartStatus } = useContext(CartContext);
 
   return (
     <>
       {cartStatus && (
         <>
-          <Backdrop btnClick={() => {setCartStatus(false); }} />
+          <Backdrop
+            btnClick={() => {
+              setCartStatus(false);
+            }}
+          />
           <CartCard />)
         </>
       )}
