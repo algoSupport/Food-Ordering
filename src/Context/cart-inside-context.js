@@ -35,9 +35,7 @@ const CartInsideContextProvider = (props) => {
       return ++prevNumber;
     });
 
-  
     setCartListArrayState((prevCartList) => {
-
       let newCartlist = [...prevCartList, newCartItem];
 
       let newTotal = newCartlist.reduce((totalSum, item) => {
@@ -49,36 +47,46 @@ const CartInsideContextProvider = (props) => {
     });
   };
 
-  const decreaseCartItemQuantity = (itemOrderNumber) => {   
-    // console.log("Cart InsideContext", "Minus function");
-
+  const decreaseCartItemQuantity = (itemOrderNumber) => {
     let cartChangeIndex = cartListArrayState.findIndex(
       (cartOrder) => cartOrder.OrderNumber == itemOrderNumber
     );
 
-    // /*This bracket for testing -->*/ }
-
     setCartListArrayState((prevCartList) => {
-
-      console.log("CartSetterFunc", prevCartList[cartChangeIndex].Quantity)
 
       let clonedArray = JSON.parse(JSON.stringify(prevCartList));
       clonedArray[cartChangeIndex].Quantity--;
-      // clonedArray[cartChangeIndex].Quantity = clonedArray[cartChangeIndex].Quantity - 1;
 
       return clonedArray;
     });
-  return
+    return;
   };
 
-    const updateTotalFunc = () =>{
+  const increaseCartItemQuantity = (itemOrderNumber) => {
+    let cartChangeIndex = cartListArrayState.findIndex(
+      (cartOrder) => cartOrder.OrderNumber == itemOrderNumber
+    );
+
+    setCartListArrayState((prevCartList) => {
+      console.log("CartSetterFunc", prevCartList[cartChangeIndex].Quantity);
+
+      let clonedArray = JSON.parse(JSON.stringify(prevCartList));
+      clonedArray[cartChangeIndex].Quantity++;
+
+      return clonedArray;
+    });
+    return;
+  };
+
+
+  const updateTotalFunc = () => {
     let newTotal = cartListArrayState.reduce((totalSum, item) => {
       return totalSum + item.Price * item.Quantity;
     }, 0);
 
     setTotalState(newTotal);
     return;
-  }
+  };
 
   const cartInsideValues = {
     Total: totalState,
@@ -88,6 +96,7 @@ const CartInsideContextProvider = (props) => {
     setCurrentItem: setCurrentItemState,
     addItemToCart: addItemToCartFunc,
     cartMinusFunc: decreaseCartItemQuantity,
+    cartPlusFunc:increaseCartItemQuantity,
     updateTotal: updateTotalFunc,
   };
 

@@ -8,12 +8,17 @@ import styles from "./CartItemAdjust.module.css";
 
 const CartItemAdjust = (props) => {
 
-const { cartMinusFunc, updateTotal } = useContext(CartInsideContext);
+const { cartMinusFunc,cartPlusFunc, updateTotal } = useContext(CartInsideContext);
 
 
   const cartItemAdjustMinus = () => {
-    // console.log("Cart ItemAdjust Component", "Minus function");
     cartMinusFunc(props.cartItemKey);
+    updateTotal();
+    return
+  };
+
+  const cartItemAdjustPlus = () => {
+    cartPlusFunc(props.cartItemKey);
     updateTotal();
     return
   };
@@ -26,7 +31,7 @@ const { cartMinusFunc, updateTotal } = useContext(CartInsideContext);
         clickFunc={cartItemAdjustMinus}
       ></Button>
 
-      <Button styling={styles.PlusButton} content="+"></Button>
+      <Button styling={styles.PlusButton} content="+" clickFunc={cartItemAdjustPlus}></Button>
     </div>
   );
 };
