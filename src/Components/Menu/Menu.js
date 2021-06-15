@@ -14,13 +14,19 @@ const Menu = () => {
       {
         MenuItemTitle:"Dango",
         MenuItemDesc:"a small, sticky, sweet dumpling, commonly skewered on a stick",
-        MenuItemPrice:"150",
+        MenuItemPrice:"30",
       },
   
       {
         MenuItemTitle:"Kompeito",
         MenuItemDesc:"A crystal sugar candy",
-        MenuItemPrice:"20",
+        MenuItemPrice:"10",
+      },
+
+      {
+        MenuItemTitle:"Taiyaki",
+        MenuItemDesc:"Fish shaped cake with a sweet filling",
+        MenuItemPrice:"60",
       },
     ]);
   },[])

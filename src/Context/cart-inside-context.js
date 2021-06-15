@@ -24,6 +24,18 @@ const CartInsideContextProvider = (props) => {
       return;
     }
 
+    /**/
+    let existingCartEntry = cartListArrayState.find( item =>{
+      return item.Name == currentItemName
+    });
+    if(existingCartEntry) {
+      let newQuantity=Number(existingCartEntry.Quantity) + (+currentItemQuantity);
+      existingCartEntry.Quantity = newQuantity;
+    return;
+    }
+
+//
+
     const newCartItem = {
       OrderNumber: cartOrderNumberState,
       Name: currentItemName,
