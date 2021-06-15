@@ -13,13 +13,11 @@ const { cartMinusFunc,cartPlusFunc, updateTotal } = useContext(CartInsideContext
 
   const cartItemAdjustMinus = () => {
     cartMinusFunc(props.cartItemKey);
-    updateTotal();
     return
   };
 
   const cartItemAdjustPlus = () => {
     cartPlusFunc(props.cartItemKey);
-    updateTotal();
     return
   };
 

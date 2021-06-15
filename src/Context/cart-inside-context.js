@@ -38,13 +38,19 @@ const CartInsideContextProvider = (props) => {
     setCartListArrayState((prevCartList) => {
       let newCartlist = [...prevCartList, newCartItem];
 
-      let newTotal = newCartlist.reduce((totalSum, item) => {
-        return totalSum + item.Price * item.Quantity;
-      }, 0);
+      updateTotalFunc(newCartlist);
 
-      setTotalState(newTotal);
       return newCartlist;
     });
+  };
+
+
+  const removeCartItem = (orderIndex, arrayCopy) => {
+    arrayCopy.splice(orderIndex, 1);
+
+    console.log("Array Edited", arrayCopy);
+
+    return arrayCopy;
   };
 
   const decreaseCartItemQuantity = (itemOrderNumber) => {
@@ -53,11 +59,16 @@ const CartInsideContextProvider = (props) => {
     );
 
     setCartListArrayState((prevCartList) => {
-
       let clonedArray = JSON.parse(JSON.stringify(prevCartList));
       clonedArray[cartChangeIndex].Quantity--;
 
-      return clonedArray;
+      if (clonedArray[cartChangeIndex].Quantity < 1) {
+        updateTotalFunc(clonedArray);
+        return removeCartItem(cartChangeIndex, clonedArray);
+      } else {
+        updateTotalFunc(clonedArray);
+        return clonedArray;
+      }
     });
     return;
   };
@@ -68,19 +79,18 @@ const CartInsideContextProvider = (props) => {
     );
 
     setCartListArrayState((prevCartList) => {
-      console.log("CartSetterFunc", prevCartList[cartChangeIndex].Quantity);
-
       let clonedArray = JSON.parse(JSON.stringify(prevCartList));
       clonedArray[cartChangeIndex].Quantity++;
+
+      updateTotalFunc(clonedArray);
 
       return clonedArray;
     });
     return;
   };
 
-
-  const updateTotalFunc = () => {
-    let newTotal = cartListArrayState.reduce((totalSum, item) => {
+  const updateTotalFunc = (newArray=cartListArrayState) => {
+    let newTotal = newArray.reduce((totalSum, item) => {
       return totalSum + item.Price * item.Quantity;
     }, 0);
 
@@ -92,11 +102,11 @@ const CartInsideContextProvider = (props) => {
     Total: totalState,
     CartListArray: cartListArrayState,
     setCartListArray: setCartListArrayState,
-    CurrentItem: currentItemState,
-    setCurrentItem: setCurrentItemState,
+    // CurrentItem: currentItemState,
+    // setCurrentItem: setCurrentItemState,
     addItemToCart: addItemToCartFunc,
     cartMinusFunc: decreaseCartItemQuantity,
-    cartPlusFunc:increaseCartItemQuantity,
+    cartPlusFunc: increaseCartItemQuantity,
     updateTotal: updateTotalFunc,
   };
 

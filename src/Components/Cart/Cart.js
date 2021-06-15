@@ -26,13 +26,6 @@ const CartCard = () => {
       <Card cardWidth="40vw" cardColor="peachpuff">
         <h2>Cart</h2>
 
-        <button
-          onClick={() =>
-            CartListArray.forEach((item) => console.log(item.Name,item.Quantity))
-          }
-        >
-          PRESS FOR CART LIST QUANTITIES
-        </button>
         {CartList}
 
         <h3>Total: {Total}</h3>
@@ -48,11 +41,7 @@ const Cart = () => {
     <>
       {cartStatus && (
         <>
-          <Backdrop
-            btnClick={() => {
-              setCartStatus(false);
-            }}
-          />
+          <Backdrop  btnClick={() => {  setCartStatus(false);  }} />
           <CartCard />)
         </>
       )}
