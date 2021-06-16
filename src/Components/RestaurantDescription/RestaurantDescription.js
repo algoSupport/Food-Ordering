@@ -10,7 +10,6 @@ const RestaurantDescription =props => {
                                 <p>ようこそ,本物の和菓子へ</p>
             </Card>
     )
-
 }
 
 export default RestaurantDescription;

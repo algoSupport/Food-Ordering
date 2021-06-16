@@ -1,7 +1,3 @@
-import {useContext} from 'react';
-
-import {CartInsideContext} from "../../../Context/cart-inside-context";
-
 import styles from './CartItem.module.css';
 
 import CartItemAdjust from './CartItemAdjust/CartItemAdjust';
@@ -13,8 +9,9 @@ const CartItem = props =>{
         <li className={styles.MenuItemContainer} >
         
         <div className={styles.ItemInfoContainer}>
-        <h4>{props.Name}</h4>
-        <h5>Price Each: PKR {props.Price}</h5>
+        <h3>{props.Name}</h3>
+        <h4>Price Each: PKR {props.Price}</h4>
+        <h5>Total Item Price: {props.Price*props.Quantity} </h5>
         </div>
 
         <div className={styles.SpaceBox}/>

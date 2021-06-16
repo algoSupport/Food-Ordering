@@ -11,7 +11,6 @@ export const CartInsideContext = React.createContext({
 
 const CartInsideContextProvider = (props) => {
   const [totalState, setTotalState] = useState(0);
-  const [currentItemState, setCurrentItemState] = useState({});
   const [cartListArrayState, setCartListArrayState] = useState([]);
   const [cartOrderNumberState, setCartOrderNumberState] = useState(0);
 
@@ -110,16 +109,25 @@ const CartInsideContextProvider = (props) => {
     return;
   };
 
+  let printOrder = ()=>{
+    cartListArrayState.map((cartItem) => (
+    console.log(`You have ordered: ${cartItem.Quantity} ${cartItem.Name}`)
+  ));
+  console.log("Your total cost is PKR "+totalState)
+  console.log("Your order has been submitted")
+  setCartListArrayState([]);
+  setTotalState(0);
+     };
+
   const cartInsideValues = {
     Total: totalState,
     CartListArray: cartListArrayState,
     setCartListArray: setCartListArrayState,
-    // CurrentItem: currentItemState,
-    // setCurrentItem: setCurrentItemState,
     addItemToCart: addItemToCartFunc,
     cartMinusFunc: decreaseCartItemQuantity,
     cartPlusFunc: increaseCartItemQuantity,
     updateTotal: updateTotalFunc,
+    orderSubmitFunc: printOrder,
   };
 
   return (

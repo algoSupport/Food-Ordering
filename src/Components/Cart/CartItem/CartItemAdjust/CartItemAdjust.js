@@ -8,7 +8,7 @@ import styles from "./CartItemAdjust.module.css";
 
 const CartItemAdjust = (props) => {
 
-const { cartMinusFunc,cartPlusFunc, updateTotal } = useContext(CartInsideContext);
+const { cartMinusFunc,cartPlusFunc } = useContext(CartInsideContext);
 
 
   const cartItemAdjustMinus = () => {

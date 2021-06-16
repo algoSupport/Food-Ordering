@@ -4,7 +4,7 @@
     margin-left: auto;
     flex-grow:2;
     align-content: flex-start;
-    margin-top:20px;
+    margin-top:5px;
 }
 
 .LabelBox{
@@ -18,13 +18,13 @@
     border-radius: 4px;
     flex-grow: 1;
     width: 50%;
-    height: 24%;
+    height: 25%;
     font-size: 1rem;
 }
 
 .SubmitButton{
-    width: 15%;
-    height:25%;
+    width: 55%;
+    height:35%;
     flex-grow: 4;
     border-radius: 5vw;
     background-color: salmon;

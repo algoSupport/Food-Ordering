@@ -29,7 +29,7 @@ const MenuItemAdd = props =>{
             
             <label className={styles.LabelBox} htmlFor={props.MenuItemName}> <strong>Amount: </strong> </label>
             
-            <input className={styles.NumberBox} type='number' id={props.MenuItemName} ref={quantityRef} />
+            <input min="1" max="99" className={styles.NumberBox} type='number' id={props.MenuItemName}  ref={quantityRef} />
 
             <input className={styles.SubmitButton} type="submit" id={props.MenuItemName} value="ADD" />
             
