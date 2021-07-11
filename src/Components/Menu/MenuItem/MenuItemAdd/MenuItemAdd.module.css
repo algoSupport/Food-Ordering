@@ -18,13 +18,13 @@
     border-radius: 4px;
     flex-grow: 1;
     width: 50%;
-    height: 25%;
+    height: 35%;
     font-size: 1rem;
 }
 
 .SubmitButton{
     width: 55%;
-    height:35%;
+    height:60%;
     flex-grow: 4;
     border-radius: 5vw;
     background-color: salmon;

@@ -1,4 +1,6 @@
-import Card from "./../../UI/Card/Card";
+import CardNew from "./../../UI/Card/Card";
+import {Grid,Typography,Container, Box,Paper,Card} from "@material-ui/core"
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import MenuItem from "./MenuItem/MenuItem";
 
 import styles from "./Menu.module.css";
@@ -32,21 +34,31 @@ const Menu = () => {
   },[])
 
   let readyArray=menuListArray.map( menuItem=> (
+    <Box m={1} p={1} key={menuItem.MenuItemTitle} >
   <MenuItem 
-  key={Math.random()}
-  MenuItemTitle={menuItem.MenuItemTitle}
+   MenuItemTitle={menuItem.MenuItemTitle}
   MenuItemDesc={menuItem.MenuItemDesc}
-  MenuItemPrice={menuItem.MenuItemPrice} />  ));
+  MenuItemPrice={menuItem.MenuItemPrice} />
+   <hr/>
+  </Box>  ));
+
+
    
 
 
   return (
-    <Card cardWidth="50vw" cardColor="pink">
-      <h2>Menu</h2>
+    <Paper>
+          <Box width="70%"  m={0.5} p={2} mx="10%">
+
+      <Typography variant="h4" component="h2" align="center">Menu</Typography>
+
       <ul className={styles.MenuList}>
         {readyArray}
       </ul>
-    </Card>
+
+      </Box>
+    </Paper>
+  
   )
 };
 

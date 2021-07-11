@@ -1,40 +1,60 @@
-import {useContext, useRef} from 'react';
+import { useContext, useRef } from "react";
 
-import {CartInsideContext} from '../../../../Context/cart-inside-context';
+import { CartInsideContext } from "../../../../Context/cart-inside-context";
 
-import styles from './MenuItemAdd.module.css';
+import { TextField,Button } from "@material-ui/core";
 
+import styles from "./MenuItemAdd.module.css";
 
+const MenuItemAdd = (props) => {
+  const { addItemToCart } = useContext(CartInsideContext);
 
-const MenuItemAdd = props =>{
+  const quantityRef = useRef();
 
-    const {addItemToCart} = useContext(CartInsideContext);
+  const MenuItemAddFunc = (event) => {
+    event.preventDefault();
 
-    const quantityRef=  useRef();
+    let inputItemQuantity = quantityRef.current.value;
+    // console.log("QuantityRef", quantityRef.current.value);
 
+    addItemToCart(props.MenuItemName, props.MenuItemPrice, inputItemQuantity);
+    quantityRef.current.value = "";
+  };
 
-    const MenuItemAddFunc = (event) => {
-        event.preventDefault();
+  return (
+    // <form className={styles.MenuAddBox} onSubmit={MenuItemAddFunc}>
+       <form onSubmit={MenuItemAddFunc}>
+      {/* <label className={styles.LabelBox} htmlFor={props.MenuItemName}>
+        {" "}
+        <strong>Amount: </strong>{" "}
+      </label> */}
 
-        let inputItemQuantity = quantityRef.current.value;
-        // console.log("QuantityRef", quantityRef.current.value);
-        
-        addItemToCart(props.MenuItemName,props.MenuItemPrice,inputItemQuantity);
-        quantityRef.current.value = "";
-    };
-    
+      <TextField
+        id={props.MenuItemName}
+        type="number"
+        min="1"
+        max="99"
+        label="Amount: "
+        InputLabelProps={{
+          shrink: true,
+        }}
+        variant="outlined"
+        inputRef={quantityRef}
+      />
 
-    return(
-        <form className={styles.MenuAddBox} onSubmit={MenuItemAddFunc}>
-            
-            <label className={styles.LabelBox} htmlFor={props.MenuItemName}> <strong>Amount: </strong> </label>
-            
-            <input min="1" max="99" className={styles.NumberBox} type='number' id={props.MenuItemName}  ref={quantityRef} />
+      {/* <input min="1" max="99" className={styles.NumberBox} type='number' id={props.MenuItemName}  ref={quantityRef} /> */}
 
-            <input className={styles.SubmitButton} type="submit" id={props.MenuItemName} value="ADD" />
-            
-        </form>
-    )
+      <Button id={props.MenuItemName} variant="contained" color="primary" type="submit" size="large">
+        ADD
+        </Button>  
+      {/* <input
+        className={styles.SubmitButton}
+        type="submit"
+        id={props.MenuItemName}
+        value="ADD"
+      /> */}
+    </form>
+  );
 };
 
 export default MenuItemAdd;

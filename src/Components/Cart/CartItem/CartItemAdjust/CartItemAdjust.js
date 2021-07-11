@@ -1,36 +1,56 @@
 import { useContext } from "react";
 
-import {CartInsideContext} from "../../../../Context/cart-inside-context";
+import { CartInsideContext } from "../../../../Context/cart-inside-context";
 
-import Button from "../../../../UI/Button/Button";
+import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
+
+// import Button from "../../../../UI/Button/Button";
+import { Typography, Button,ButtonGroup,IconButton } from "@material-ui/core";
 
 import styles from "./CartItemAdjust.module.css";
 
 const CartItemAdjust = (props) => {
-
-const { cartMinusFunc,cartPlusFunc } = useContext(CartInsideContext);
-
+  const { cartMinusFunc, cartPlusFunc } = useContext(CartInsideContext);
 
   const cartItemAdjustMinus = () => {
     cartMinusFunc(props.cartItemKey);
-    return
+    return;
   };
 
   const cartItemAdjustPlus = () => {
     cartPlusFunc(props.cartItemKey);
-    return
+    return;
   };
 
   return (
-    <div className={styles.CartItemAdjustBox}>
-      <Button
+    <ButtonGroup color="primary">
+     {/* <div className={styles.CartItemAdjustBox}> */}
+      {/* <Button
         styling={styles.MinusButton}
         content="-"
         clickFunc={cartItemAdjustMinus}
       ></Button>
 
-      <Button styling={styles.PlusButton} content="+" clickFunc={cartItemAdjustPlus}></Button>
-    </div>
+      <Button styling={styles.PlusButton} content="+" clickFunc={cartItemAdjustPlus}></Button> */}
+      <IconButton
+        variant="outlined"
+        onClick={cartItemAdjustMinus}
+        size="medium"
+        aria-label="Subtract Item From Cart"
+      >
+       <RemoveIcon/>
+      </IconButton>
+
+      <IconButton
+        
+        onClick={cartItemAdjustPlus}
+        size="medium"
+        aria-label="Add Item to Cart"
+      >
+        <AddIcon/>
+      </IconButton>
+      </ButtonGroup> 
   );
 };
 

@@ -117,6 +117,7 @@ const CartInsideContextProvider = (props) => {
   console.log("Your order has been submitted")
   setCartListArrayState([]);
   setTotalState(0);
+  alert("Order Submitted. Check Console");
      };
 
   const cartInsideValues = {
