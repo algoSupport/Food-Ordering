@@ -1,6 +1,5 @@
 import CardNew from "./../../UI/Card/Card";
 import {Grid,Typography,Container, Box,Paper,Card} from "@material-ui/core"
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 import MenuItem from "./MenuItem/MenuItem";
 
 import styles from "./Menu.module.css";

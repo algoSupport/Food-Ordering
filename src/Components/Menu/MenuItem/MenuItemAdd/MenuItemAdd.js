@@ -32,8 +32,8 @@ const MenuItemAdd = (props) => {
       <TextField
         id={props.MenuItemName}
         type="number"
-        min="1"
-        max="99"
+        InputProps= {{inputProps: {min:1, max:30} }}
+        fullWidth={1}
         label="Amount: "
         InputLabelProps={{
           shrink: true,
