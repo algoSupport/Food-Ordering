@@ -56,8 +56,8 @@ const CartCard = () => {
             {CartList}
           </Grid>
 
-          <Grid item xs={3} sm={12}>
-            <Typography variant="h5" component="h3" align="right">
+          <Grid item xs={3} sm={12} align="center">
+            <Typography variant="h5" component="h3" >
               Total: {Total}
             </Typography>
           </Grid>
