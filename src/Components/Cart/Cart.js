@@ -93,6 +93,7 @@ const Cart = () => {
       top: "2%",
       left: "25%",
       width: "50%",
+      overflow: "scroll"
     };}
     else{
       cartStyles ={
@@ -100,6 +101,7 @@ const Cart = () => {
         top: "2%",
         left: "10%",
         width: "80%",
+        overflow: "scroll"
       }
     }
 
@@ -127,7 +129,7 @@ const Cart = () => {
           onClose={() => {
             setCartStatus(false);
           }}
-        >
+                  >
           <CartCard />
         </Modal>
       )}
