@@ -28,7 +28,7 @@ const Header = () => {
     <AppBar position="static">
         <Toolbar>
       {/* // <div className={styles.HeaderContainer}> */}
-      <Grid container justify="space-around" alignItems="center">
+      <Grid container alignItems="center">
           
         <Grid item xs={4} sm={7}>
           <Typography variant="h4" component="h1" noWrap>
@@ -37,14 +37,14 @@ const Header = () => {
         </Grid>
         {/* <h1 className={styles.HeaderTitle}>Amai: Authentic Japanese Sweets</h1> */}
 
-        <Grid item xs={6} sm={2}>
+        <Grid item xs={5} sm={3}>
           <CartButton />
         </Grid>
 
-        <Grid item xs={2}>
+        <Grid item xs={3} sm={1}>
         <FormControlLabel
         control={
-          <Switch color="secondary" checked={isDark} onChange={()=>setIsDark(!isDark)} />
+          <Switch color="default" checked={isDark} onChange={()=>setIsDark(!isDark)} />
         }
         label={isDark? "Dark Mode": "Light Mode"}
       />
