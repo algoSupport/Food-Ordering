@@ -6,6 +6,7 @@ import { Container, Box } from "@material-ui/core";
 
 import CartContextProvider from "./Context/cart-triggered-context";
 import CartInsideContextProvider from "./Context/cart-inside-context";
+import DarkThemeProvider from "./Context/theme-context";
 
 import "./App.css";
 
@@ -15,8 +16,9 @@ function App() {
 
         <CartContextProvider>
           <CartInsideContextProvider>
-          <Container>
+            <DarkThemeProvider>
 
+          <Container>
             <div className="App">
               <Cart />
               <Header />
@@ -24,7 +26,8 @@ function App() {
               <Menu />
             </div>
             </Container>
-    
+
+            </DarkThemeProvider>
           </CartInsideContextProvider>
         </CartContextProvider>
 

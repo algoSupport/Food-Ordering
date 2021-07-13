@@ -1,28 +1,27 @@
-import { Toolbar, Typography, Grid } from "@material-ui/core";
+import { Toolbar, Typography, Grid, Switch,FormControlLabel } from "@material-ui/core";
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import { AppBar } from "@material-ui/core";
 import CartButton from "./CartButton/CartButton";
 import styles from "./Header.module.css";
-import DangoHeader from "./DangoTea.jpg";
+
+import { themeContext } from "../../Context/theme-context";
+import { useContext } from "react";
+
 
 const Header = () => {
 
+  const {isDark, setIsDark} = useContext(themeContext);
+
  let isScreenBig = useMediaQuery('(min-width: 800px)');
  let headerTitle="";
- let headerSize=1;
- let cartButtonSize=1;
 
   if(isScreenBig) {
     headerTitle="Amai: Authentic Japanese Sweets";
-    headerSize=8;
-    cartButtonSize=2
-
   }
+
   else{
     headerTitle="Amai";
-    headerSize=6;
-    cartButtonSize=6;
   }
 
   return (
@@ -31,16 +30,28 @@ const Header = () => {
       {/* // <div className={styles.HeaderContainer}> */}
       <Grid container justify="space-around" alignItems="center">
           
-        <Grid item xs={headerSize}>
+        <Grid item xs={4} sm={7}>
           <Typography variant="h4" component="h1" noWrap>
             {headerTitle}
           </Typography>
         </Grid>
         {/* <h1 className={styles.HeaderTitle}>Amai: Authentic Japanese Sweets</h1> */}
 
-        <Grid item xs={cartButtonSize}>
+        <Grid item xs={6} sm={2}>
           <CartButton />
         </Grid>
+
+        <Grid item xs={2}>
+        <FormControlLabel
+        control={
+          <Switch color="secondary" checked={isDark} onChange={()=>setIsDark(!isDark)} />
+        }
+        label={isDark? "Dark Mode": "Light Mode"}
+      />
+          
+        </Grid>
+        
+
       </Grid>
       {/* <img src={DangoHeader} className={styles.HeaderImage} alt="" /> */}
       {/* </div> */}

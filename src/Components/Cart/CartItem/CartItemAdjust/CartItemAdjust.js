@@ -34,7 +34,6 @@ const CartItemAdjust = (props) => {
 
       <Button styling={styles.PlusButton} content="+" clickFunc={cartItemAdjustPlus}></Button> */}
       <IconButton
-        variant="outlined"
         onClick={cartItemAdjustMinus}
         size="large"
         aria-label="Subtract Item From Cart"
