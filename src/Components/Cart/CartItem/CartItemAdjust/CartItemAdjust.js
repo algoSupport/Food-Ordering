@@ -6,9 +6,8 @@ import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 
 // import Button from "../../../../UI/Button/Button";
-import { Typography, Button,ButtonGroup,IconButton } from "@material-ui/core";
+import { ButtonGroup,IconButton } from "@material-ui/core";
 
-import styles from "./CartItemAdjust.module.css";
 
 const CartItemAdjust = (props) => {
   const { cartMinusFunc, cartPlusFunc } = useContext(CartInsideContext);

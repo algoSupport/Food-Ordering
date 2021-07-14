@@ -9,11 +9,8 @@ export const themeContext= React.createContext({
 const DarkThemeProvider= (props) =>{
 
 
-
    const [isDarkState,setIsDarkState] =useState(true);
-
     
-
     const newTheme = createMuiTheme({
         palette:{
             type: isDarkState? 'dark':'light',

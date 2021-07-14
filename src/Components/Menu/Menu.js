@@ -1,11 +1,8 @@
-import CardNew from "./../../UI/Card/Card";
 import {
-  Grid,
+
   Typography,
-  Container,
   Box,
   Paper,
-  Card,
 } from "@material-ui/core";
 import MenuItem from "./MenuItem/MenuItem";
 
@@ -39,7 +36,7 @@ const Menu = () => {
   }, []);
 
   let readyArray = menuListArray.map((menuItem) => (
-    <Box m={1} p={1} key={menuItem.MenuItemTitle}>
+    <Box p={1} key={menuItem.MenuItemTitle}>
       <MenuItem
         MenuItemTitle={menuItem.MenuItemTitle}
         MenuItemDesc={menuItem.MenuItemDesc}
@@ -51,7 +48,7 @@ const Menu = () => {
 
   return (
     <Paper>
-      <Box width="70%" m={0.5} p={2} mx="10%">
+      <Box width="70%" p={2} mx="10%">
         <Typography variant="h4" component="h2" align="center">
           Menu
         </Typography>
@@ -61,8 +58,7 @@ const Menu = () => {
           Favicon made by{" "}
           <a
             href="https://www.flaticon.com/authors/smashicons"
-            title="Smashicons"
-          >
+            title="Smashicons">
             Smashicons
           </a>{" "}
           from{" "}

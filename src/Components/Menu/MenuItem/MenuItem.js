@@ -1,14 +1,10 @@
 
 import MenuItemAdd from './MenuItemAdd/MenuItemAdd'
 
-import styles from './MenuItem.module.css'
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { Typography,Card,Box } from '@material-ui/core';
+import styles from './MenuItem.module.css';
+import { Typography,Hidden } from '@material-ui/core';
 
 const MenuItem = props =>{
-
-    let isScreenBig = useMediaQuery('(min-width: 800px)')
-
 
     return(
 
@@ -16,7 +12,9 @@ const MenuItem = props =>{
         <li className={styles.MenuItemContainer}>
         <div className={styles.ItemInfoContainer}>
         <Typography variant="h6" component="h4">{props.MenuItemTitle}</Typography>
-        {isScreenBig && <Typography variant="caption">{props.MenuItemDesc}</Typography>}
+        <Hidden smDown>
+        {<Typography variant="caption">{props.MenuItemDesc}</Typography>}
+        </Hidden>
         <Typography variant="h7" component="h5">PKR {props.MenuItemPrice} </Typography>
         </div>
 

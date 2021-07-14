@@ -1,25 +1,18 @@
-import {Paper,Typography,Grid} from "@material-ui/core"
-import styles from './RestaurantDescription.module.css';
+import { Paper, Typography, Grid, Hidden,Box } from "@material-ui/core";
 
-import {useMediaQuery} from "@material-ui/core/"
-
-
-const RestaurantDescription =props => {
-
-    let isScreenBig =useMediaQuery('(min-width: 780px)');
-
-    return(
-        <>
-        {/* <Paper cardWidth="30vw" cardColor="#A22A4A" cardFontColor="whitesmoke"> */
-        isScreenBig &&
-            <Paper>
-                 <Grid container justify="space-around" alignItems="center">
-                 <Typography variant="body1" align="right">ようこそ,本物の和菓子へ</Typography>
-                 </Grid>
-            </Paper>
-        }
-        </>
-    )
-}
-
+const RestaurantDescription = (props) => {
+  return (
+    <Hidden smDown>
+      <Paper>
+          <Box borderBottom={1}>
+        <Grid container justify="space-around" alignItems="center" borderBottom={1}>
+          <Typography variant="body1" align="right">
+            ようこそ,本物の和菓子へ
+          </Typography>
+        </Grid>
+        </Box>
+      </Paper>
+    </Hidden>
+  );
+};
 export default RestaurantDescription;

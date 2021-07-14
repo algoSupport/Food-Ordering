@@ -4,27 +4,20 @@ import React, { useContext } from "react";
 
 import {
   Typography,
-  Card,
   CardContent,
   Paper,
   Grid,
-  Box,
   Button,
   Modal,
   useMediaQuery,
 } from "@material-ui/core";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
 import CartItem from "./CartItem/CartItem";
-
-import Backdrop from "../../UI/Backdrop/Backdrop";
 
 // import Button from '../../UI/Button/Button';
 
 import { CartContext } from "../../Context/cart-triggered-context";
 import { CartInsideContext } from "../../Context/cart-inside-context";
-
-import styles from "./Cart.module.css";
 
 const CartCard = () => {
   const { CartListArray, Total, orderSubmitFunc } =
@@ -106,17 +99,6 @@ const Cart = () => {
     }
 
   const { cartStatus, setCartStatus } = useContext(CartContext);
-
-  // return (
-  //   <>
-  //     {cartStatus && (
-  //       <>
-  //         <Backdrop  btnClick={() => {  setCartStatus(false);  }} />
-  //         <CartCard />
-  //       </>
-  //     )}
-  //   </>
-  // );
 
   return (
     <>
