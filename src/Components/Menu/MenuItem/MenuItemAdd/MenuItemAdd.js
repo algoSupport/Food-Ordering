@@ -26,12 +26,13 @@ const MenuItemAdd = (props) => {
             id={"quantity" + props.MenuItemName}
             type="number"
             InputProps={{ inputProps: { min: 1, max: 30 } }}
-            label="Amount: "
+            label="Amount:"
             InputLabelProps={{
               shrink: true,
             }}
             variant="outlined"
             inputRef={quantityRef}
+            // margin='dense'
             fullWidth={true}
           />
         </Grid>
