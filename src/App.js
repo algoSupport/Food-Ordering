@@ -8,26 +8,20 @@ import CartContextProvider from "./Context/cart-triggered-context";
 import CartInsideContextProvider from "./Context/cart-inside-context";
 import DarkThemeProvider from "./Context/theme-context";
 
-
 function App() {
   return (
-
-        <CartContextProvider>
-          <CartInsideContextProvider>
-            <DarkThemeProvider>
-
+    <CartContextProvider>
+      <CartInsideContextProvider>
+        <DarkThemeProvider>
           <Container>
-              <Cart />
-              <Header />
-              <RestaurantDescription />
-              <Menu />
-            </Container>
-
-            </DarkThemeProvider>
-          </CartInsideContextProvider>
-        </CartContextProvider>
-
-    
+            <Cart />
+            <Header />
+            <RestaurantDescription />
+            <Menu />
+          </Container>
+        </DarkThemeProvider>
+      </CartInsideContextProvider>
+    </CartContextProvider>
   );
 }
 

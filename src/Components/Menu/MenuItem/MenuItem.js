@@ -1,30 +1,54 @@
+import MenuItemAdd from "./MenuItemAdd/MenuItemAdd";
 
-import MenuItemAdd from './MenuItemAdd/MenuItemAdd'
+import {
+  Typography,
+  Hidden,
+  Grid,
+  ListItem,
+  ListItemAvatar,
+  Avatar,
+} from "@material-ui/core";
 
-import styles from './MenuItem.module.css';
-import { Typography,Hidden } from '@material-ui/core';
+// import dangoPicture from "../menuItemPics/192.png";
 
-const MenuItem = props =>{
+const MenuItem = (props) => {
+  return (
+    <ListItem>
+      {/* <ListItemAvatar>
+                {/* <Avatar alt={props.PicAltProp} src={"./192.png"} /> */}
+      {/* </ListItemAvatar> */}
+      <Grid container>
+        <Grid item xs={10}>
+          <Grid container>
+            <Grid item xs={12}>
+              <Typography variant="h6" component="h4">
+                {props.MenuItemTitle}
+              </Typography>
+            </Grid>
 
-    return(
+            <Grid item xs={12}>
+              <Hidden smDown>
+                <Typography variant="caption">{props.MenuItemDesc}</Typography>
+              </Hidden>
+            </Grid>
 
+            <Grid item xs={12}>
+              <Typography variant="body1" component="h5">
+                PKR {props.MenuItemPrice}{" "}
+              </Typography>
+            </Grid>
+          </Grid>
+        </Grid>
 
-        <li className={styles.MenuItemContainer}>
-        <div className={styles.ItemInfoContainer}>
-        <Typography variant="h6" component="h4">{props.MenuItemTitle}</Typography>
-        <Hidden smDown>
-        {<Typography variant="caption">{props.MenuItemDesc}</Typography>}
-        </Hidden>
-        <Typography variant="body1" component="h5">PKR {props.MenuItemPrice} </Typography>
-        </div>
-
-        <div className={styles.SpaceBox}/>
-        
-        <MenuItemAdd MenuItemName={props.MenuItemTitle} MenuItemPrice={props.MenuItemPrice} />
-        
-        </li>
-
-    )
+        <Grid item xs={2}>
+          <MenuItemAdd
+            MenuItemName={props.MenuItemTitle}
+            MenuItemPrice={props.MenuItemPrice}
+          />
+        </Grid>
+      </Grid>
+    </ListItem>
+  );
 };
 
 export default MenuItem;

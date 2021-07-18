@@ -7,8 +7,10 @@ export const CartInsideContext = React.createContext({
   CurrentItem: {},
   setCurrentItem: () => {},
   addItemToCart: () => {},
+  isError: false,
   isCartSubmit: false,
-  setIsCartSubmit: () =>{},
+  setIsCartSubmit: () => {},
+  setIsError: () => {},
 });
 
 const CartInsideContextProvider = (props) => {
@@ -16,6 +18,7 @@ const CartInsideContextProvider = (props) => {
   const [cartListArrayState, setCartListArrayState] = useState([]);
   const [cartOrderNumberState, setCartOrderNumberState] = useState(0);
   const [cartSubmitState, setCartSubmitState] = useState(false);
+  const [errorState, setErrorState] = useState(false);
 
   const addItemToCartFunc = (
     currentItemName,
@@ -27,20 +30,21 @@ const CartInsideContextProvider = (props) => {
     }
 
     /**/
-    let existingCartEntry = cartListArrayState.find( item =>{
-      return item.Name == currentItemName
+    let existingCartEntry = cartListArrayState.find((item) => {
+      return item.Name === currentItemName;
     });
-    if(existingCartEntry) {
-      let newQuantity=Number(existingCartEntry.Quantity) + (+currentItemQuantity);
-      if (newQuantity>30) {
-        alert("Error. Quantity exceeds 30. Try again");
+    if (existingCartEntry) {
+      let newQuantity =
+        Number(existingCartEntry.Quantity) + +currentItemQuantity;
+      if (newQuantity > 30) {
+        setErrorState(true);
         return;
       }
       existingCartEntry.Quantity = newQuantity;
-    return;
+      return;
     }
 
-//
+    //
 
     const newCartItem = {
       OrderNumber: cartOrderNumberState,
@@ -62,7 +66,6 @@ const CartInsideContextProvider = (props) => {
     });
   };
 
-
   const removeCartItem = (orderIndex, arrayCopy) => {
     arrayCopy.splice(orderIndex, 1);
 
@@ -73,7 +76,7 @@ const CartInsideContextProvider = (props) => {
 
   const decreaseCartItemQuantity = (itemOrderNumber) => {
     let cartChangeIndex = cartListArrayState.findIndex(
-      (cartOrder) => cartOrder.OrderNumber == itemOrderNumber
+      (cartOrder) => cartOrder.OrderNumber === itemOrderNumber
     );
 
     setCartListArrayState((prevCartList) => {
@@ -93,11 +96,13 @@ const CartInsideContextProvider = (props) => {
 
   const increaseCartItemQuantity = (itemOrderNumber) => {
     let cartChangeIndex = cartListArrayState.findIndex(
-      (cartOrder) => cartOrder.OrderNumber == itemOrderNumber
+      (cartOrder) => cartOrder.OrderNumber === itemOrderNumber
     );
 
     setCartListArrayState((prevCartList) => {
-      if(prevCartList[cartChangeIndex].Quantity >=30) {return prevCartList}
+      if (prevCartList[cartChangeIndex].Quantity >= 30) {
+        return prevCartList;
+      }
       let clonedArray = JSON.parse(JSON.stringify(prevCartList));
       clonedArray[cartChangeIndex].Quantity++;
 
@@ -108,7 +113,7 @@ const CartInsideContextProvider = (props) => {
     return;
   };
 
-  const updateTotalFunc = (newArray=cartListArrayState) => {
+  const updateTotalFunc = (newArray = cartListArrayState) => {
     let newTotal = newArray.reduce((totalSum, item) => {
       return totalSum + item.Price * item.Quantity;
     }, 0);
@@ -117,14 +122,15 @@ const CartInsideContextProvider = (props) => {
     return;
   };
 
-  let printOrder = ()=>{
+  let printOrder = () => {
+    if (!totalState) return;
     setCartSubmitState(true);
-    cartListArrayState.map((cartItem) => (
-    console.log(`You have ordered: ${cartItem.Quantity} ${cartItem.Name}`)
-  ));
-  console.log("Your total cost is PKR "+totalState)
-  console.log("Your order has been submitted")
-     };
+    cartListArrayState.map((cartItem) =>
+      console.log(`You have ordered: ${cartItem.Quantity} ${cartItem.Name}`)
+    );
+    console.log("Your total cost is PKR " + totalState);
+    console.log("Your order has been submitted");
+  };
 
   const cartInsideValues = {
     Total: totalState,
@@ -138,6 +144,8 @@ const CartInsideContextProvider = (props) => {
     orderSubmitFunc: printOrder,
     isCartSubmit: cartSubmitState,
     setIsCartSubmit: setCartSubmitState,
+    isError: errorState,
+    setIsError: setErrorState,
   };
 
   return (

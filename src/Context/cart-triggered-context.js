@@ -1,28 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
-export const CartContext = React.createContext(
+export const CartContext = React.createContext({
+  cartStatus: false,
+  setCartStatus: () => {},
+});
 
-    {
-        cartStatus:false,
-        setCartStatus: () => {},
-    }
-);
+const CartContextProvider = (props) => {
+  const [cartTriggered, setCartTriggered] = useState(false);
 
+  const cartValue = {
+    cartStatus: cartTriggered,
+    setCartStatus: setCartTriggered,
+  };
 
-const CartContextProvider = props =>{
-
-    const [cartTriggered, setCartTriggered] =useState(false);
-
-    const cartValue = {
-            cartStatus: cartTriggered,
-            setCartStatus: setCartTriggered,
-                     }            
-
-    return(
+  return (
     <CartContext.Provider value={cartValue}>
-        {props.children}
-        </CartContext.Provider>
-    )
-}
+      {props.children}
+    </CartContext.Provider>
+  );
+};
 
 export default CartContextProvider;

@@ -1,11 +1,22 @@
-import { Typography, Box, Paper } from "@material-ui/core";
+import {
+  Typography,
+  Box,
+  Paper,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  List,
+} from "@material-ui/core";
 import MenuItem from "./MenuItem/MenuItem";
 
-import styles from "./Menu.module.css";
-import { useEffect, useState } from "react";
+import { CartInsideContext } from "../../Context/cart-inside-context";
+import { useEffect, useState, useContext } from "react";
+
+// import dangoPicture from "./menuItemPics/192.png";
 
 const Menu = () => {
   const [menuListArray, setMenuListArray] = useState([]);
+  const { isError, setIsError } = useContext(CartInsideContext);
 
   useEffect(() => {
     setMenuListArray([
@@ -14,18 +25,24 @@ const Menu = () => {
         MenuItemDesc:
           "a small, sticky, sweet dumpling, commonly skewered on a stick",
         MenuItemPrice: "30",
+        PicAlt: "DangoPicture",
+        PicSrc: "192.png",
       },
 
       {
-        MenuItemTitle: "Kompeito",
+        MenuItemTitle: "Konpeito",
         MenuItemDesc: "A crystal sugar candy",
         MenuItemPrice: "10",
+        PicAlt: "DangoPicture",
+        PicSrc: "192.png",
       },
 
       {
         MenuItemTitle: "Taiyaki",
         MenuItemDesc: "Fish shaped cake with a sweet filling",
         MenuItemPrice: "60",
+        PicAlt: "DangoPicture",
+        PicSrc: "192.png",
       },
     ]);
   }, []);
@@ -36,6 +53,8 @@ const Menu = () => {
         MenuItemTitle={menuItem.MenuItemTitle}
         MenuItemDesc={menuItem.MenuItemDesc}
         MenuItemPrice={menuItem.MenuItemPrice}
+        PicAltProp={menuItem.PicAlt}
+        PicSrcProp={menuItem.PicSrc}
       />
       <hr />
     </Box>
@@ -48,7 +67,7 @@ const Menu = () => {
           Menu
         </Typography>
 
-        <ul className={styles.MenuList}>{readyArray}</ul>
+        <List>{readyArray}</List>
         <div>
           Favicon made by{" "}
           <a
@@ -62,6 +81,15 @@ const Menu = () => {
             www.flaticon.com
           </a>
         </div>
+        <Dialog
+          open={isError}
+          onClose={() => {
+            setIsError(false);
+          }}
+        >
+          <DialogTitle>Error</DialogTitle>
+          <DialogContent>Amount of items in cart will exceed 30.</DialogContent>
+        </Dialog>
       </Box>
     </Paper>
   );

@@ -1,74 +1,62 @@
 import { useContext } from "react";
-import { Dialog, DialogTitle, Typography,useMediaQuery,List,ListItem,ListItemText,Box, DialogContent } from "@material-ui/core";
-
+import {
+  Dialog,
+  DialogTitle,
+  Typography,
+  List,
+  ListItem,
+  ListItemText,
+  DialogContent,
+} from "@material-ui/core";
 
 import { CartInsideContext } from "../../../Context/cart-inside-context";
 
 const CartSubmitCard = (props) => {
-  const { isCartSubmit, setIsCartSubmit, CartListArray,setCartListArray, Total, setTotal } =
-    useContext(CartInsideContext);
+  const {
+    isCartSubmit,
+    setIsCartSubmit,
+    CartListArray,
+    setCartListArray,
+    Total,
+    setTotal,
+  } = useContext(CartInsideContext);
 
-
-    let totalDisplay=Total;
+  let totalDisplay = Total;
   let OrderSubmitOutput = CartListArray.map((cartItem) => (
     <ListItem>
-    <ListItemText>
-      {`You have ordered: ${cartItem.Quantity} ${cartItem.Name}`}
-    </ListItemText>
+      <ListItemText>
+        {`You have ordered: ${cartItem.Quantity} ${cartItem.Name}`}
+      </ListItemText>
     </ListItem>
   ));
 
-  let isScreenBig = useMediaQuery("(min-width: 900px)");
-
-  let cartSubmitStyles = {};
-
-  if (isScreenBig) {
-    cartSubmitStyles = {
-      position: "fixed",
-      overflow: "auto",
-      padding: "30px"
-
-    };
-  } else {
-    cartSubmitStyles = {
-      position: "fixed",
-      top: "5%",
-      left: "5%",
-      width: "80%",
-      overflow: "auto",
-    };
-  }
-
-
   return (
     <Dialog
-    //  style={ cartSubmitStyles }
+      //  style={ cartSubmitStyles }
       open={isCartSubmit}
-      onClose={ () => {
+      onClose={() => {
         setIsCartSubmit(false);
         setTotal(0);
         setCartListArray([]);
-      } }
+      }}
     >
-        <DialogTitle>Order Details</DialogTitle>
+      <DialogTitle>Order Details</DialogTitle>
       <DialogContent>
-
         <List>
-        {OrderSubmitOutput}
-        <hr/>
+          {OrderSubmitOutput}
+          <hr />
         </List>
-        
+
         <Typography variant="h6">
           {"Your total cost is PKR " + totalDisplay}
-          <hr/>
+          <hr />
         </Typography>
 
         <Typography variant="overline">
           Your order has been submitted
-          <hr/>
+          <hr />
         </Typography>
-
-        </DialogContent>
+      </DialogContent>
     </Dialog>
   );
 };

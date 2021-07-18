@@ -1,11 +1,9 @@
 import { useContext } from "react";
-// import Button from '../../../UI/Button/Button';
+
 import { Button } from "@material-ui/core";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
 import { CartContext } from "../../../Context/cart-triggered-context";
-
-import styles from "./CartButton.module.css";
 
 const CartButton = (props) => {
   let cartCtx = useContext(CartContext);
@@ -21,7 +19,7 @@ const CartButton = (props) => {
       color="secondary"
       onClick={openCart}
       size="large"
-      startIcon={<ShoppingCartIcon/>}
+      startIcon={<ShoppingCartIcon />}
     >
       Your Cart
     </Button>

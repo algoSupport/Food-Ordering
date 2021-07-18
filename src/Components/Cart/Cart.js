@@ -65,14 +65,14 @@ const CartCard = () => {
               Submit Order
             </Button>
             {/* <Button content="Submit Order" type="submit" styling={styles.OrderSubmitButton} clickFunc={orderSubmitFunc}> </Button> */}
-          {/* <CartSubmitCard/>/ */}
-         </Grid>
+            {/* <CartSubmitCard/>/ */}
+          </Grid>
         </Grid>
       </CardContent>
-      
-      <CartSubmitCard/>
+
+      <CartSubmitCard />
     </Paper>
-   
+
     // </div>
   );
 };
@@ -103,15 +103,15 @@ const Cart = () => {
   const { cartStatus, setCartStatus } = useContext(CartContext);
 
   return (
-        <Modal
-          style={cartStyles}
-          open={cartStatus}
-          onClose={() => {
-            setCartStatus(false);
-          }}
-        >
-          <CartCard />
-        </Modal>
-      );
-        }
+    <Modal
+      style={cartStyles}
+      open={cartStatus}
+      onClose={() => {
+        setCartStatus(false);
+      }}
+    >
+      <CartCard />
+    </Modal>
+  );
+};
 export default Cart;
