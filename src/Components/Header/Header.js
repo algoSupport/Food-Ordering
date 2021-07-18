@@ -4,6 +4,7 @@ import {
   Grid,
   Switch,
   FormControlLabel,
+  Box,
 } from "@material-ui/core";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
@@ -36,9 +37,13 @@ const Header = () => {
             </Typography>
           </Grid>
 
-          <Grid item xs={5} sm={3}>
+          
+          <Grid item xs={5} sm={4}>
+          <Box mr={1}>
             <CartButton />
+            </Box>
           </Grid>
+          
 
           <Grid item xs={3} sm={1}>
             <FormControlLabel
