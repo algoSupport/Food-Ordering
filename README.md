@@ -1,20 +1,25 @@
 # How I worked on This Project
-1-Identified broad components needed
-2-Identified finer components needed in those broader components
-3-Identified reusable bits of code
-4-Identifty states needed
-5-Identify props/data to supply to multiple components
-6-Use Context to supply state
-7-Manage most State in Context
-5-Implement. Iterate when 1,2 or 3 is changed
+<ol>
+  <li>Identified broad components needed</li>
+<li>Identified finer components needed in those broader components</li>
+<li>Identified reusable bits of code</li>
+<li>Identifty states needed</li>
+<li>Identify props/data to supply to multiple components</li>
+<li>Use Context to supply state</li>
+<li>Manage most State in Context</li>
+<li>Implement. Iterate when 1,2 or 3 is changed</li>
+  </ol>
 
 # What I learned
-1. Material UI
-2. Responsiveness
---In Addition to Previously Learned--
-Context
-State
-UI Design
+<ol>
+  <li>Material UI</li>
+  <li>Responsiveness</li>
+  <h3>In Addition to Previously Learned</h3>
+<ul>
+  <li>Context</li>
+<li>State</li>
+<li>UI Design</li>
+  </ul>
 
 
 # Getting Started with Create React App
