@@ -37,13 +37,11 @@ const Header = () => {
             </Typography>
           </Grid>
 
-          
           <Grid item xs={5} sm={4}>
-          <Box mr={1}>
-            <CartButton />
+            <Box mr={1}>
+              <CartButton />
             </Box>
           </Grid>
-          
 
           <Grid item xs={3} sm={1}>
             <FormControlLabel
