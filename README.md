@@ -1,3 +1,22 @@
+# How I worked on This Project
+1-Identified broad components needed
+2-Identified finer components needed in those broader components
+3-Identified reusable bits of code
+4-Identifty states needed
+5-Identify props/data to supply to multiple components
+6-Use Context to supply state
+7-Manage most State in Context
+5-Implement. Iterate when 1,2 or 3 is changed
+
+# What I learned
+1. Material UI
+2. Responsiveness
+--In Addition to Previously Learned--
+Context
+State
+UI Design
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
