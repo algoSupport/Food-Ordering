@@ -14,7 +14,7 @@ const CartItemAdjust = (props) => {
 
   const cartItemAdjustMinus = () => {
     cartMinusFunc(props.cartItemKey);
-    return;
+    return
   };
 
   const cartItemAdjustPlus = () => {

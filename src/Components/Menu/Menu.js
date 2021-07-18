@@ -1,9 +1,4 @@
-import {
-
-  Typography,
-  Box,
-  Paper,
-} from "@material-ui/core";
+import { Typography, Box, Paper } from "@material-ui/core";
 import MenuItem from "./MenuItem/MenuItem";
 
 import styles from "./Menu.module.css";
@@ -58,7 +53,8 @@ const Menu = () => {
           Favicon made by{" "}
           <a
             href="https://www.flaticon.com/authors/smashicons"
-            title="Smashicons">
+            title="Smashicons"
+          >
             Smashicons
           </a>{" "}
           from{" "}

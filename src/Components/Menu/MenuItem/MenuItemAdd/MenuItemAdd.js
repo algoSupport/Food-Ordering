@@ -30,10 +30,9 @@ const MenuItemAdd = (props) => {
       </label> */}
 
       <TextField
-        id={props.MenuItemName}
+        id={"quantity"+props.MenuItemName}
         type="number"
         InputProps= {{inputProps: {min:1, max:30} }}
-        fullWidth={1}
         label="Amount: "
         InputLabelProps={{
           shrink: true,
@@ -41,18 +40,9 @@ const MenuItemAdd = (props) => {
         variant="outlined"
         inputRef={quantityRef}
       />
-
-      {/* <input min="1" max="99" className={styles.NumberBox} type='number' id={props.MenuItemName}  ref={quantityRef} /> */}
-
-      <Button id={props.MenuItemName} variant="contained" color="primary" type="submit" size="large">
+      <Button id={"button"+props.MenuItemName} variant="contained" color="primary" type="submit" size="large">
         ADD
         </Button>  
-      {/* <input
-        className={styles.SubmitButton}
-        type="submit"
-        id={props.MenuItemName}
-        value="ADD"
-      /> */}
     </form>
   );
 };

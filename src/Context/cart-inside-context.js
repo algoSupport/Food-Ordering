@@ -7,12 +7,15 @@ export const CartInsideContext = React.createContext({
   CurrentItem: {},
   setCurrentItem: () => {},
   addItemToCart: () => {},
+  isCartSubmit: false,
+  setIsCartSubmit: () =>{},
 });
 
 const CartInsideContextProvider = (props) => {
   const [totalState, setTotalState] = useState(0);
   const [cartListArrayState, setCartListArrayState] = useState([]);
   const [cartOrderNumberState, setCartOrderNumberState] = useState(0);
+  const [cartSubmitState, setCartSubmitState] = useState(false);
 
   const addItemToCartFunc = (
     currentItemName,
@@ -29,6 +32,10 @@ const CartInsideContextProvider = (props) => {
     });
     if(existingCartEntry) {
       let newQuantity=Number(existingCartEntry.Quantity) + (+currentItemQuantity);
+      if (newQuantity>30) {
+        alert("Error. Quantity exceeds 30. Try again");
+        return;
+      }
       existingCartEntry.Quantity = newQuantity;
     return;
     }
@@ -90,6 +97,7 @@ const CartInsideContextProvider = (props) => {
     );
 
     setCartListArrayState((prevCartList) => {
+      if(prevCartList[cartChangeIndex].Quantity >=30) {return prevCartList}
       let clonedArray = JSON.parse(JSON.stringify(prevCartList));
       clonedArray[cartChangeIndex].Quantity++;
 
@@ -110,18 +118,17 @@ const CartInsideContextProvider = (props) => {
   };
 
   let printOrder = ()=>{
+    setCartSubmitState(true);
     cartListArrayState.map((cartItem) => (
     console.log(`You have ordered: ${cartItem.Quantity} ${cartItem.Name}`)
   ));
   console.log("Your total cost is PKR "+totalState)
   console.log("Your order has been submitted")
-  setCartListArrayState([]);
-  setTotalState(0);
-  alert("Order Submitted. Check Console");
      };
 
   const cartInsideValues = {
     Total: totalState,
+    setTotal: setTotalState,
     CartListArray: cartListArrayState,
     setCartListArray: setCartListArrayState,
     addItemToCart: addItemToCartFunc,
@@ -129,6 +136,8 @@ const CartInsideContextProvider = (props) => {
     cartPlusFunc: increaseCartItemQuantity,
     updateTotal: updateTotalFunc,
     orderSubmitFunc: printOrder,
+    isCartSubmit: cartSubmitState,
+    setIsCartSubmit: setCartSubmitState,
   };
 
   return (

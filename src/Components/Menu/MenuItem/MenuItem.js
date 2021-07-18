@@ -15,7 +15,7 @@ const MenuItem = props =>{
         <Hidden smDown>
         {<Typography variant="caption">{props.MenuItemDesc}</Typography>}
         </Hidden>
-        <Typography variant="h7" component="h5">PKR {props.MenuItemPrice} </Typography>
+        <Typography variant="body1" component="h5">PKR {props.MenuItemPrice} </Typography>
         </div>
 
         <div className={styles.SpaceBox}/>

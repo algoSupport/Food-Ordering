@@ -5,7 +5,7 @@ const RestaurantDescription = (props) => {
     <Hidden smDown>
       <Paper>
           <Box borderBottom={1}>
-        <Grid container justify="space-around" alignItems="center" borderBottom={1}>
+        <Grid container justify="space-around" alignItems="center">
           <Typography variant="body1" align="right">
             ようこそ,本物の和菓子へ
           </Typography>

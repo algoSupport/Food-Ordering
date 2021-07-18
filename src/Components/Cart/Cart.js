@@ -13,8 +13,7 @@ import {
 } from "@material-ui/core";
 
 import CartItem from "./CartItem/CartItem";
-
-// import Button from '../../UI/Button/Button';
+import CartSubmitCard from "./CartSubmitCard/CartSubmitCard";
 
 import { CartContext } from "../../Context/cart-triggered-context";
 import { CartInsideContext } from "../../Context/cart-inside-context";
@@ -50,7 +49,7 @@ const CartCard = () => {
           </Grid>
 
           <Grid item xs={3} sm={12} align="center">
-            <Typography variant="h5" component="h3" >
+            <Typography variant="h5" component="h3">
               Total: {Total}
             </Typography>
           </Grid>
@@ -66,57 +65,53 @@ const CartCard = () => {
               Submit Order
             </Button>
             {/* <Button content="Submit Order" type="submit" styling={styles.OrderSubmitButton} clickFunc={orderSubmitFunc}> </Button> */}
-          </Grid>
+          {/* <CartSubmitCard/>/ */}
+         </Grid>
         </Grid>
       </CardContent>
+      
+      <CartSubmitCard/>
     </Paper>
+   
     // </div>
   );
 };
 
 const Cart = () => {
-  
-  let isScreenBig = useMediaQuery('(min-width: 800px)');
+  let isScreenBig = useMediaQuery("(min-width: 900px)");
 
-  let cartStyles= {};
+  let cartStyles = {};
 
-  if (isScreenBig){
+  if (isScreenBig) {
     cartStyles = {
       position: "fixed",
       top: "2%",
       left: "25%",
       width: "50%",
-      overflow: "scroll"
-    };}
-    else{
-      cartStyles ={
-        position: "fixed",
-        top: "2%",
-        left: "10%",
-        width: "80%",
-        overflow: "scroll"
-      }
-    }
+      overflow: "auto",
+    };
+  } else {
+    cartStyles = {
+      position: "fixed",
+      top: "2%",
+      left: "10%",
+      width: "80%",
+      overflow: "auto",
+    };
+  }
 
   const { cartStatus, setCartStatus } = useContext(CartContext);
 
   return (
-    <>
-      {cartStatus && (
         <Modal
           style={cartStyles}
-          open={() => {
-            setCartStatus(true);
-          }}
+          open={cartStatus}
           onClose={() => {
             setCartStatus(false);
           }}
-                  >
+        >
           <CartCard />
         </Modal>
-      )}
-    </>
-  );
-};
-
+      );
+        }
 export default Cart;
