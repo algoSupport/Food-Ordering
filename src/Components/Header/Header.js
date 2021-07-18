@@ -38,7 +38,7 @@ const Header = () => {
           </Grid>
 
           <Grid item xs={5} sm={4}>
-            <Box mr={1}>
+            <Box mr={2}>
               <CartButton />
             </Box>
           </Grid>

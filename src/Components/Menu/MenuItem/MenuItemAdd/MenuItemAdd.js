@@ -32,6 +32,7 @@ const MenuItemAdd = (props) => {
             }}
             variant="outlined"
             inputRef={quantityRef}
+            fullWidth={true}
           />
         </Grid>
 
@@ -42,6 +43,7 @@ const MenuItemAdd = (props) => {
             color="primary"
             type="submit"
             size="large"
+            fullWidth={true}
           >
             ADD
           </Button>
