@@ -20,7 +20,7 @@ const MenuItemAdd = (props) => {
 
   return (
     <form onSubmit={MenuItemAddFunc}>
-      <Grid container>
+      <Grid container alignItems='flex-start'>
         <Grid item xs={12}>
           <TextField
             id={"quantity" + props.MenuItemName}
@@ -32,7 +32,7 @@ const MenuItemAdd = (props) => {
             }}
             variant="outlined"
             inputRef={quantityRef}
-            // margin='dense'
+            margin='none'
             fullWidth={true}
           />
         </Grid>

@@ -18,7 +18,7 @@ const MenuItem = (props) => {
                 {/* <Avatar alt={props.PicAltProp} src={"./192.png"} /> */}
       {/* </ListItemAvatar> */}
       <Grid container>
-        <Grid item xs={9}>
+        <Grid item xs={7} sm={9}>
           <Grid container>
             <Grid item xs={12}>
               <Typography variant="h6" component="h4">
@@ -40,7 +40,7 @@ const MenuItem = (props) => {
           </Grid>
         </Grid>
 
-        <Grid item xs={3}>
+        <Grid item xs={5} sm={3}>
           <MenuItemAdd
             MenuItemName={props.MenuItemTitle}
             MenuItemPrice={props.MenuItemPrice}
