@@ -1,27 +1,25 @@
-import Header from "./Components/Header/Header";
-import Menu from "./Components/Menu/Menu";
-import Cart from "./Components/Cart/Cart";
-import RestaurantDescription from "./Components/RestaurantDescription/RestaurantDescription";
-import { Container } from "@material-ui/core";
+import {Route,Switch} from 'react-router-dom';
 
-import CartContextProvider from "./Context/cart-triggered-context";
-import CartInsideContextProvider from "./Context/cart-inside-context";
-import DarkThemeProvider from "./Context/theme-context";
+import Ver1Page from "./Ver 1/Ver1Page";
+import Ver2Page from "./Ver 2/Ver2Page";
 
 function App() {
   return (
-    <CartContextProvider>
-      <CartInsideContextProvider>
-        <DarkThemeProvider>
-          <Container>
-            <Cart />
-            <Header />
-            <RestaurantDescription />
-            <Menu />
-          </Container>
-        </DarkThemeProvider>
-      </CartInsideContextProvider>
-    </CartContextProvider>
+     
+<Switch>
+    <Route path="/v1">
+      <Ver1Page/>
+    </Route> 
+
+    <Route path="/v2">
+      <Ver2Page/>
+    </Route>
+
+    <Route path="/">
+      <Ver2Page/>
+    </Route> 
+</Switch>
+
   );
 }
 

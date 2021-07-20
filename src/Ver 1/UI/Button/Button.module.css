@@ -1,0 +1,12 @@
+.formButton{
+  width: auto;
+  font: inherit;
+  padding: 0.5rem 1.5rem;
+  margin: 10px;
+  border: 1px solid #8b005d;
+  border-radius: 5%;
+  background-color: peachpuff;
+  /* background-color: powderblue; st */
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.26);
+  cursor: pointer;
+}

@@ -1,0 +1,14 @@
+.NavBar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 100%;
+    color:white
+}
+
+.CurrentNav {
+    border-radius: 5%;
+    background-color: lightsalmon;
+    color: white;
+}

@@ -1,0 +1,15 @@
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 2px 16px;
+    margin: 5px auto;
+    
+    justify-content: center;
+
+    display: flex;
+    
+    flex-direction: column;
+
+    border-radius: 11px;
+   /* width: auto; */
+    background-color: coral;
+}

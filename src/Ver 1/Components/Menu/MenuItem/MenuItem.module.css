@@ -1,0 +1,15 @@
+.MenuItemContainer{
+    display: flex;
+    font-size: 0.9rem;
+}
+
+.ItemInfoContainer{
+    width:69%;
+    margin: 0;
+    flex-grow: 2;
+}
+
+.SpaceBox{
+    flex-grow:8;
+    width:30vw;
+}

@@ -1,0 +1,12 @@
+.HeaderContainer{
+    display: flex;
+    background-color: palevioletred;
+    color: cornsilk;
+}
+
+
+@media (max-width: 600px){
+    .HeaderTitle{
+        font-size: 5.5vw;
+    }
+}
