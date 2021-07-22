@@ -121,6 +121,27 @@ const CartInsideContextProvider = (props) => {
     setTotalState(newTotal);
     return;
   };
+  
+  async function sendOrder(orderObject) {
+    
+    var currentdate = new Date(); 
+    var datetime = [("Order Placed: " + currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear() + " @ "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds())];
+
+    let newOrderObj =datetime.concat([orderObject]);
+
+    const OrderResponseThing = await  fetch("https://foodorderapp-cf013-default-rtdb.asia-southeast1.firebasedatabase.app/Orders.json", {
+      method: 'POST',
+      body: JSON.stringify(newOrderObj),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      });
+    };
 
   let printOrder = () => {
     if (!totalState) return;
@@ -130,6 +151,12 @@ const CartInsideContextProvider = (props) => {
     );
     console.log("Your total cost is PKR " + totalState);
     console.log("Your order has been submitted");
+
+
+    sendOrder(cartListArrayState);
+    
+    //Cart Cleared in CartSubmitCard onClose
+
   };
 
   const cartInsideValues = {

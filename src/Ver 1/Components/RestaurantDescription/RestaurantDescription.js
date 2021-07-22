@@ -1,7 +1,5 @@
 import Card from '../../UI/Card/Card';
 
-import styles from './RestaurantDescription.module.css';
-
 
 const RestaurantDescription =props => {
 

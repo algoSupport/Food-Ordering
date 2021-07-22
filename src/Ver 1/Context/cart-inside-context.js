@@ -25,7 +25,7 @@ const CartInsideContextProvider = (props) => {
 
     /**/
     let existingCartEntry = cartListArrayState.find( item =>{
-      return item.Name == currentItemName
+      return item.Name === currentItemName
     });
     if(existingCartEntry) {
       let newQuantity=Number(existingCartEntry.Quantity) + (+currentItemQuantity);
@@ -66,7 +66,7 @@ const CartInsideContextProvider = (props) => {
 
   const decreaseCartItemQuantity = (itemOrderNumber) => {
     let cartChangeIndex = cartListArrayState.findIndex(
-      (cartOrder) => cartOrder.OrderNumber == itemOrderNumber
+      (cartOrder) => cartOrder.OrderNumber === itemOrderNumber
     );
 
     setCartListArrayState((prevCartList) => {
@@ -86,7 +86,7 @@ const CartInsideContextProvider = (props) => {
 
   const increaseCartItemQuantity = (itemOrderNumber) => {
     let cartChangeIndex = cartListArrayState.findIndex(
-      (cartOrder) => cartOrder.OrderNumber == itemOrderNumber
+      (cartOrder) => cartOrder.OrderNumber === itemOrderNumber
     );
 
     setCartListArrayState((prevCartList) => {

@@ -6,6 +6,7 @@ import {
   Typography,
   CardContent,
   Paper,
+  Card,
   Grid,
   Button,
   Modal,
@@ -33,11 +34,9 @@ const CartCard = () => {
   ));
 
   return (
-    // <div className={styles.cartContainer}>
-    <Paper container>
+        <Card>
       <CardContent>
-        <Grid container justifyContent="space-around" alignItems="center">
-          {/* <Card cardWidth="40vw" cardColor="peachpuff"> */}
+        <Grid container alignItems="center">
           <Grid item xs={12}>
             <Typography variant="h4" component="h2" align="center">
               Cart
@@ -54,7 +53,6 @@ const CartCard = () => {
             </Typography>
           </Grid>
 
-          {/* <Grid item xs={4}></Grid> */}
           <Grid item xs={9} sm={12} align="center">
             <Button
               variant="contained"
@@ -64,14 +62,13 @@ const CartCard = () => {
             >
               Submit Order
             </Button>
-            {/* <Button content="Submit Order" type="submit" styling={styles.OrderSubmitButton} clickFunc={orderSubmitFunc}> </Button> */}
-            {/* <CartSubmitCard/>/ */}
+           
           </Grid>
         </Grid>
       </CardContent>
 
       <CartSubmitCard />
-    </Paper>
+    </Card>
 
     // </div>
   );

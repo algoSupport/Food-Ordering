@@ -10,8 +10,6 @@ import CartContextProvider from "./Context/cart-triggered-context";
 import CartInsideContextProvider from "./Context/cart-inside-context";
 import DarkThemeProvider from "./Context/theme-context";
 
-import {Link} from 'react-router-dom';
-
 function Ver2Page() {
   return (
     <CartContextProvider>

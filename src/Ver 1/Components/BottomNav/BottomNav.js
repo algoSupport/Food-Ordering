@@ -1,5 +1,5 @@
 import Button from '../../UI/Button/Button';
-import { Link,NavLink,Prompt } from "react-router-dom";
+import { NavLink,Prompt } from "react-router-dom";
 import styles from './BottomNav.module.css';
 
 
