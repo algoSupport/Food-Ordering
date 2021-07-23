@@ -1,6 +1,6 @@
 # How I worked on This Project
 <ol>
-  <li>Identified broad components needed</li>
+<li>Identified broad components needed</li>
 <li>Identified finer components needed in those broader components</li>
 <li>Identified reusable bits of code</li>
 <li>Identifty states needed</li>
@@ -14,6 +14,7 @@
 <ol>
   <li>Material UI</li>
   <li>Responsiveness</li>
+  <li>React Router</li>
   <h3>In Addition to Previously Learned</h3>
 <ul>
   <li>Context</li>
