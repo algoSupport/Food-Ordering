@@ -68,8 +68,8 @@ const Menu = () => {
         </Typography>
 
         <List>{readyArray}</List>
-        <div>
           <Typography variant="h6">Attribution</Typography>
+          <Typography variant="body1">
           Dango and Favicon made by{" "}
           <a
             href="https://www.flaticon.com/authors/smashicons"
@@ -82,6 +82,17 @@ const Menu = () => {
             www.flaticon.com
           </a>
           <br/>
+
+          Konpeito picture by{" "}
+          <a
+            href="https://commons.wikimedia.org/wiki/File:Kompeito_konpeito.JPG"
+            title="Midori"
+          >
+            Midori
+          </a>
+
+              <br/>
+              
             Taiyaki Icon made by{" "}
             <a href="https://www.freepik.com" title="Freepik">
               Freepik
@@ -90,26 +101,9 @@ const Menu = () => {
             <a href="https://www.flaticon.com/" title="Flaticon">
               www.flaticon.com
             </a>
-        </div>
-        <Typography variant="body1">
-          Konpeito picture by{" "}
-          <a
-            href="https://commons.wikimedia.org/wiki/File:Kompeito_konpeito.JPG"
-            title="Midori"
-          >
-            Midori
-          </a>
         </Typography>
-
-        <Typography variant="body1">
-          Taiyaki picture by{" "}
-          <a
-            href="https://commons.wikimedia.org/wiki/File:Ice_Cream_Taiyaki.jpg"
-            title="Cliomd1"
-          >
-            Cliomd1
-          </a>
-        </Typography>
+        
+      
         <Dialog
           open={isError}
           onClose={() => {
