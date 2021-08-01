@@ -25,7 +25,7 @@ const Menu = () => {
         MenuItemDesc:
           "a small, sticky, sweet dumpling, commonly skewered on a stick",
         MenuItemPrice: "30",
-        PicAlt: "DangoPicture",
+        PicAlt: "Dango Picture",
         PicSrc: "192.png",
       },
 
@@ -33,16 +33,16 @@ const Menu = () => {
         MenuItemTitle: "Konpeito",
         MenuItemDesc: "A crystal sugar candy",
         MenuItemPrice: "10",
-        PicAlt: "DangoPicture",
-        PicSrc: "192.png",
+        PicAlt: "Konpeto Picture",
+        PicSrc: "konEdit.jpeg",
       },
 
       {
         MenuItemTitle: "Taiyaki",
         MenuItemDesc: "Fish shaped cake with a sweet filling",
         MenuItemPrice: "60",
-        PicAlt: "DangoPicture",
-        PicSrc: "192.png",
+        PicAlt: "Taiyaki Picture",
+        PicSrc: "taiyakiEdit.png",
       },
     ]);
   }, []);
@@ -69,7 +69,8 @@ const Menu = () => {
 
         <List>{readyArray}</List>
         <div>
-          Favicon made by{" "}
+          <Typography variant="h6">Attribution</Typography>
+          Dango and Favicon made by{" "}
           <a
             href="https://www.flaticon.com/authors/smashicons"
             title="Smashicons"
@@ -80,7 +81,35 @@ const Menu = () => {
           <a href="https://www.flaticon.com/" title="Flaticon">
             www.flaticon.com
           </a>
+          <br/>
+            Taiyaki Icon made by{" "}
+            <a href="https://www.freepik.com" title="Freepik">
+              Freepik
+            </a>{" "}
+            from{" "}
+            <a href="https://www.flaticon.com/" title="Flaticon">
+              www.flaticon.com
+            </a>
         </div>
+        <Typography variant="body1">
+          Konpeito picture by{" "}
+          <a
+            href="https://commons.wikimedia.org/wiki/File:Kompeito_konpeito.JPG"
+            title="Midori"
+          >
+            Midori
+          </a>
+        </Typography>
+
+        <Typography variant="body1">
+          Taiyaki picture by{" "}
+          <a
+            href="https://commons.wikimedia.org/wiki/File:Ice_Cream_Taiyaki.jpg"
+            title="Cliomd1"
+          >
+            Cliomd1
+          </a>
+        </Typography>
         <Dialog
           open={isError}
           onClose={() => {

@@ -7,6 +7,7 @@ import {
   ListItem,
   ListItemAvatar,
   Avatar,
+  Button,
 } from "@material-ui/core";
 
 // import dangoPicture from "../menuItemPics/192.png";
@@ -14,9 +15,10 @@ import {
 const MenuItem = (props) => {
   return (
     <ListItem>
-      {/* <ListItemAvatar>
-                {/* <Avatar alt={props.PicAltProp} src={"./192.png"} /> */}
-      {/* </ListItemAvatar> */}
+      <ListItemAvatar>
+       <Avatar src={require(`./${props.PicSrcProp}`).default}/> 
+      </ListItemAvatar >
+      {/* <img src={require('/home/mbaamir/React/FoodOrderApp/react-food-order-app/src/Ver 2/Components/Menu/MenuItem/192.png')} alt=''/> */}
       <Grid container>
         <Grid item xs={7} sm={9}>
           <Grid container>
