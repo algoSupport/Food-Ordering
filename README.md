@@ -15,6 +15,7 @@
   <li>Material UI</li>
   <li>Responsiveness</li>
   <li>React Router</li>
+  <li>Fetch API</li>
   <h3>In Addition to Previously Learned</h3>
 <ul>
   <li>Context</li>
